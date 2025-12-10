@@ -1,0 +1,22 @@
+/* Seed CSS
+    Utiliza la IA para generar los estilos completos.
+    Puedes pedirle que se parezca a pomofocus.io
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f0f0; /* Color base, cámbialo con la IA */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Espacio para tus estilos generados...
+*/
