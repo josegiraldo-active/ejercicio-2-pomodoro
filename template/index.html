@@ -1,20 +1,42 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Pomodoro Timer</title>
-    
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍅</text></svg>">
-
+    <title>Pomodoro Timer</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arial+Rounded+MT+Bold&family=Varela+Round&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div id="app">
-       <h1>AI Pomodoro Timer</h1>
-    </div>
+    <main class="app-container">
+        <header>
+            <h1>Pomodoro Focus</h1>
+        </header>
+
+        <div class="timer-card">
+            
+            <div class="mode-selector">
+                <button data-mode="pomodoro" class="mode-btn active">Pomodoro</button>
+                <button data-mode="shortBreak" class="mode-btn">Short Break</button>
+                <button data-mode="longBreak" class="mode-btn">Long Break</button>
+            </div>
+
+            <div class="timer-display" id="timer-text">25:00</div>
+
+            <div class="controls">
+                <button id="main-btn" class="main-btn">START</button>
+                
+                <button id="skip-btn" class="skip-btn" aria-label="Skip to next">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 18V6H6V18H4ZM8 18V6L18 12L8 18ZM20 18V6H22V18H20Z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <audio id="alarm-sound" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg"></audio>
 
     <script src="script.js"></script>
 </body>

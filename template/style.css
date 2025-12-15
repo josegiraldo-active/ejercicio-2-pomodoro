@@ -1,22 +1,148 @@
-/* Seed CSS
-    Utiliza la IA para generar los estilos completos.
-    Puedes pedirle que se parezca a pomofocus.io
-*/
+/* --- Variables & Reset --- */
+:root {
+    --color-pomodoro: #ba4949;
+    --color-short: #38858a;
+    --color-long: #397097;
+    
+    --current-color: var(--color-pomodoro); /* Default Theme */
+    --white-alpha: rgba(255, 255, 255, 0.1);
+    --text-primary: #ffffff;
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Varela Round', sans-serif;
 }
 
+/* --- Body & Background Transitions --- */
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f0f0f0; /* Color base, cámbialo con la IA */
+    background-color: var(--current-color);
+    color: var(--text-primary);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    transition: background-color 0.5s ease-in-out;
 }
 
-/* Espacio para tus estilos generados...
-*/
+.app-container {
+    width: 100%;
+    max-width: 480px;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* --- Timer Card --- */
+.timer-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 2rem 3rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- Mode Selector --- */
+.mode-selector {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2rem;
+    z-index: 10;
+}
+
+.mode-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    opacity: 0.6;
+    transition: all 0.2s ease;
+}
+
+.mode-btn:hover {
+    opacity: 1;
+}
+
+.mode-btn.active {
+    background-color: rgba(0, 0, 0, 0.15);
+    opacity: 1;
+    font-weight: bold;
+}
+
+/* --- Timer Display --- */
+.timer-display {
+    font-size: 6rem;
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: 2rem;
+    /* Fixed width to prevent jittering when numbers change */
+    font-feature-settings: "tnum"; 
+    font-variant-numeric: tabular-nums;
+}
+
+/* --- Controls --- */
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    width: 100%;
+    justify-content: center;
+}
+
+/* Start/Pause Button */
+.main-btn {
+    background-color: #ffffff;
+    color: var(--current-color);
+    border: none;
+    padding: 0 1.5rem;
+    height: 55px;
+    min-width: 150px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: color 0.5s ease-in-out, transform 0.1s ease, box-shadow 0.2s;
+    box-shadow: 0 4px 0px rgba(235, 235, 235, 0.3);
+}
+
+.main-btn:active {
+    transform: translateY(4px);
+    box-shadow: none;
+}
+
+/* Skip Button */
+.skip-btn {
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skip-btn:hover {
+    opacity: 1;
+}
+
+.skip-btn svg {
+    width: 36px;
+    height: 36px;
+}
