@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Pomodoro Timer</title>
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍅</text></svg>">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="mode-pomodoro">
+
+    <div id="app">
+       <h1>AI Pomodoro Timer</h1>
+       
+       <main class="timer-card">
+            <nav class="modes">
+                <button class="mode-btn active" data-mode="pomodoro">Pomodoro</button>
+                <button class="mode-btn" data-mode="short">Short Break</button>
+                <button class="mode-btn" data-mode="long">Long Break</button>
+            </nav>
+
+            <div class="timer-display" id="timer">25:00</div>
+
+            <div class="controls">
+                <button id="start-btn">START</button>
+                <button id="skip-btn" class="hidden">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18L14.5 12L6 6V18ZM16 6V18H18V6H16Z"></path></svg>
+                </button>
+            </div>
+       </main>
+    </div>
+
+    <audio id="alarm-sound" src="https://actions.google.com/sounds/v1/alarms/digital_watch_alarm_long.ogg" preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

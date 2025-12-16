@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.5s ease;
+}
+
+:root {
+    --pomodoro-main: #ba4949;
+    --pomodoro-bg: #a44040;
+    --short-main: #38858a;
+    --short-bg: #31757a;
+    --long-main: #397097;
+    --long-bg: #326284;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+}
+
+body.mode-pomodoro { background-color: var(--pomodoro-bg); }
+body.mode-short { background-color: var(--short-bg); }
+body.mode-long { background-color: var(--long-bg); }
+
+#app {
+    width: 100%;
+    max-width: 480px;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+.timer-card {
+    padding: 25px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body.mode-pomodoro .timer-card { background-color: var(--pomodoro-main); }
+body.mode-short .timer-card { background-color: var(--short-main); }
+body.mode-long .timer-card { background-color: var(--long-main); }
+
+.modes {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.mode-btn {
+    background: none;
+    border: none;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.mode-btn.active {
+    background-color: rgba(0, 0, 0, 0.15);
+    opacity: 1;
+}
+
+.timer-display {
+    font-size: clamp(5rem, 20vw, 7.5rem);
+    font-weight: 700;
+    margin: 20px 0;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: 60px;
+}
+
+#start-btn {
+    background-color: white;
+    border: none;
+    padding: 0 45px;
+    height: 55px;
+    border-radius: 4px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: rgb(235, 235, 235) 0px 6px 0px;
+    transition: all 0.1s ease;
+}
+
+#start-btn:active {
+    transform: translateY(6px);
+    box-shadow: none;
+}
+
+body.mode-pomodoro #start-btn { color: var(--pomodoro-main); }
+body.mode-short #start-btn { color: var(--short-main); }
+body.mode-long #start-btn { color: var(--long-main); }
+
+#skip-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
