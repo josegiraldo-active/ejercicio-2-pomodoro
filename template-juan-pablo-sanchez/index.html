@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Pomodoro Timer</title>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍅</text></svg>">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="app">
+        <h1>AI Pomodoro Timer</h1>
+
+        <div class="modes">
+            <button data-mode="pomodoro" class="mode active">Pomodoro</button>
+            <button data-mode="short" class="mode">Short Break</button>
+            <button data-mode="long" class="mode">Long Break</button>
+        </div>
+
+        <div class="timer">
+            <span id="time">25:00</span>
+        </div>
+
+        <div class="controls">
+            <button id="startPause" class="primary">Start</button>
+            <button id="skip">Skip</button>
+        </div>
+    </div>
+
+    <audio id="alarm">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
