@@ -1,0 +1,84 @@
+:root {
+    --theme-color: #ba4949;
+    --text-color: #ffffff;
+    --bg-color: #f0f0f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--theme-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.4s ease;
+}
+
+#app {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+    color: var(--text-color);
+    width: 340px;
+}
+
+h1 {
+    margin-bottom: 24px;
+}
+
+.modes {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.modes button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.modes button.active {
+    opacity: 1;
+    border-bottom: 2px solid #fff;
+}
+
+.timer {
+    font-size: 64px;
+    font-weight: 700;
+    margin: 20px 0;
+}
+
+.controls {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.controls button {
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.controls .primary {
+    background-color: #fff;
+    color: var(--theme-color);
+}
+
+.controls button:not(.primary) {
+    background-color: rgba(255,255,255,0.3);
+    color: #fff;
+}
