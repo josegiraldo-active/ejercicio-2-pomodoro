@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Pomodoro Timer</title>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍅</text></svg>">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="app">
+        <header class="app-header">
+            <h1>AI Pomodoro Timer</h1>
+        </header>
+
+        <main class="card" role="main">
+            <div class="tabs" aria-label="Modos">
+                <button class="tab is-active" type="button" data-mode="pomodoro">Pomodoro</button>
+                <button class="tab" type="button" data-mode="shortBreak">Short Break</button>
+                <button class="tab" type="button" data-mode="longBreak">Long Break</button>
+            </div>
+
+            <div class="timer">
+                <div class="time" id="timeDisplay">25:00</div>
+            </div>
+
+            <div class="controls">
+                <button class="btn btn-primary" id="startBtn" type="button">Start</button>
+
+                <button class="btn btn-primary is-hidden" id="pauseBtn" type="button">Pause</button>
+
+                <button class="icon-btn is-hidden" id="skipBtn" type="button" title="Skip Current Timer" aria-label="Skip Current Timer">
+                    <!-- Inline SVG -->
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M5 6v12l10-6L5 6z" fill="currentColor"/>
+                        <path d="M19 6v12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+
+            <p class="hint" id="hintText">Pomodoro • 25:00</p>
+        </main>
+
+        <footer class="app-footer">
+            <span class="small">No persistence • Vanilla JS</span>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
