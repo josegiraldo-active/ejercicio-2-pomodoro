@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.5s ease;
+}
+
+:root {
+    --pomodoro: #ba4949;
+    --short-break: #38858a;
+    --long-break: #397097;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+}
+
+/* Temas de fondo */
+.pomodoro-theme { background-color: var(--pomodoro); }
+.long-break-theme { background-color: var(--long-break); }
+.short-break-theme { background-color: var(--short-break); }
+
+#app {
+    width: 100%;
+    max-width: 480px;
+    padding: 20px;
+}
+
+.timer-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.modes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.mode-btn {
+    background: none;
+    border: none;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    opacity: 0.8;
+}
+
+.mode-btn.active {
+    background-color: rgba(0, 0, 0, 0.15);
+    opacity: 1;
+}
+
+.timer-display {
+    font-size: 100px;
+    font-weight: 700;
+    margin: 20px 0;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    height: 60px;
+}
+
+.main-btn {
+    background-color: white;
+    border: none;
+    color: #333;
+    padding: 12px 40px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: rgb(235, 235, 235) 0px 6px 0px;
+    transition: all 0.1s ease;
+}
+
+.main-btn:active {
+    transform: translateY(6px);
+    box-shadow: none;
+}
+
+.skip-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.skip-btn:hover { opacity: 1; }
+
+.hidden { display: none; }
