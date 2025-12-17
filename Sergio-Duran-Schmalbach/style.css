@@ -1,0 +1,101 @@
+:root {
+  --pomodoro: #ba4949;
+  --short-break: #38858a;
+  --long-break: #397097;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+  height: 100vh;
+  background-color: var(--pomodoro);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CARD CENTRAL */
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 40px 50px;
+  text-align: center;
+  min-width: 320px;
+}
+
+/* MODOS */
+.modes {
+  margin-bottom: 25px;
+}
+
+.modes button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  margin: 0 4px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.modes button.active {
+  background: rgba(255, 255, 255, 0.4);
+  font-weight: 600;
+}
+
+/* TIMER */
+.timer {
+  font-size: 120px;
+  font-weight: 700;
+  margin: 30px 0;
+}
+
+/* CONTROLES */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.controls button {
+  border: none;
+  padding: 12px 28px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Jerarquía visual */
+.controls .primary {
+  background: white;
+  color: #333;
+  font-weight: 600;
+}
+
+.controls .secondary {
+  background: rgba(255, 255, 255, 0.75);
+  color: #333;
+}
+
+.controls .tertiary {
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+}
+
+.controls button:hover {
+  opacity: 0.9;
+}
