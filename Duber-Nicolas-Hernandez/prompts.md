@@ -1,4 +1,4 @@
-# Documentación de Prompts - Validación de Formulario
+# Documentación de Prompts - Pomodoro
 
 ## Herramienta de IA Utilizada
 **Gemini 3 Pro** (Perplexity AI)
