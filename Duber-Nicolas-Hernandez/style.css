@@ -1,0 +1,152 @@
+/* --- Variables y Reset --- */
+:root {
+    --primary-color: #ba4949;
+    --text-color: #ffffff;
+    --bg-surface: rgba(255, 255, 255, 0.1);
+    --btn-active: rgba(0, 0, 0, 0.15);
+    --shadow-soft: 0 10px 20px rgba(0,0,0,0.05);
+    --shadow-btn: 0 4px 0px rgba(230, 230, 230, 0.8);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.4s ease-in-out;
+}
+
+/* --- Temas --- */
+body.theme-pomodoro { --primary-color: #ba4949; }
+body.theme-shortBreak { --primary-color: #38858a; }
+body.theme-longBreak { --primary-color: #397097; }
+
+/* --- Layout --- */
+#app {
+    width: 100%;
+    max-width: 480px;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    opacity: 0.9;
+    font-weight: 700;
+}
+
+.timer-box {
+    background-color: var(--bg-surface);
+    padding: 30px 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- Controles de Modo --- */
+.mode-controls {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.mode-btn {
+    background: transparent;
+    border: 2px solid transparent; /* Reserva espacio para foco */
+    color: var(--text-color);
+    font-size: 1rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+}
+
+.mode-btn.active {
+    background-color: var(--btn-active);
+    opacity: 1;
+    font-weight: 700;
+}
+
+.mode-btn:hover { opacity: 1; }
+
+/* Accesibilidad Teclado */
+.mode-btn:focus-visible, .main-btn:focus-visible, .skip-btn:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+    opacity: 1;
+}
+
+/* --- Display --- */
+.time-display {
+    font-family: 'Roboto Mono', monospace; /* Monospaced para evitar saltos */
+    font-size: 6.5rem;
+    font-weight: 700;
+    margin: 10px 0 30px 0;
+    line-height: 1;
+    letter-spacing: -2px;
+    font-variant-numeric: tabular-nums; /* Asegura ancho fijo en números */
+}
+
+/* --- Botones de Acción --- */
+.action-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 60px;
+}
+
+.main-btn {
+    background-color: white;
+    color: var(--primary-color);
+    border: none;
+    padding: 0 40px;
+    height: 55px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: var(--shadow-btn);
+    transition: color 0.4s, transform 0.1s, box-shadow 0.1s;
+    min-width: 180px;
+}
+
+.main-btn:active, .main-btn.pressed {
+    transform: translateY(4px);
+    box-shadow: none;
+}
+
+.skip-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    opacity: 0.7;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s, background-color 0.2s;
+}
+
+.skip-btn:hover {
+    opacity: 1;
+    background-color: rgba(255,255,255,0.1);
+}

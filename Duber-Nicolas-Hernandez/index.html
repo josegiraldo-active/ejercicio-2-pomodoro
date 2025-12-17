@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Usamos Roboto y una fuente monoespaciada para los números -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+</head>
+<body class="theme-pomodoro">
+
+    <div id="app">
+        <header>
+            <h1>Pomodoro Timer</h1>
+        </header>
+
+        <main class="timer-box">
+            <!-- Selector de Modos: Usamos data-mode en lugar de onclick -->
+            <div class="mode-controls" role="tablist">
+                <button class="mode-btn active" data-mode="pomodoro" role="tab" aria-selected="true">Pomodoro</button>
+                <button class="mode-btn" data-mode="shortBreak" role="tab" aria-selected="false">Short Break</button>
+                <button class="mode-btn" data-mode="longBreak" role="tab" aria-selected="false">Long Break</button>
+            </div>
+
+            <!-- Display de Tiempo: role="timer" para semántica -->
+            <div id="time-display" class="time-display" role="timer" aria-live="polite">25:00</div>
+
+            <!-- Botones de Acción -->
+            <div class="action-controls">
+                <button id="btn-main" class="main-btn">START</button>
+                
+                <button id="btn-skip" class="skip-btn" aria-label="Saltar al siguiente ciclo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/>
+                    </svg>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Sonido Beep Real (Base64 válido) -->
+    <audio id="alarm-sound" preload="auto">
+        <source src="data:audio/mp3;base64,SUQzBAAAAAABAFRYWFQAAAASAAADbWFqb3JfYnJhbmQAZGFzaABUWFhUAAAAEQAAA21pbm9yX3ZlcnNpb24AMABUWFhUAAAAHAAAA2NvbXBhdGlibZVfYnJhbmRzAGlzbzZtcDQxAFRTU0UAAAAOAAADTGF2ZjU3LjU2LjEwMAAAAAAAAAAAAAAA//uQZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWgAAAA0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" type="audio/mpeg">
+        <!-- Fallback: Un beep simple generado por oscilador en JS si este falla, pero dejamos la etiqueta -->
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
