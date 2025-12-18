@@ -1,4 +1,4 @@
-Prompts: 
+Prompts: (Bot utilizado chat GPT)
 1. Primer prompt introductorio
 '''
     You are a prompt engineer with many years of experience working with ClaudeCode 
