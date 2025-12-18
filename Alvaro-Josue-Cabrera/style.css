@@ -1,0 +1,383 @@
+/* ==========================================================================
+   CSS Variables & Reset
+   ========================================================================== */
+
+:root {
+    /* Mode Colors */
+    --color-pomodoro: #ba4949;
+    --color-pomodoro-dark: #a03f3f;
+    --color-pomodoro-light: #c96363;
+    
+    --color-short-break: #38858a;
+    --color-short-break-dark: #2e7075;
+    --color-short-break-light: #4a9da2;
+    
+    --color-long-break: #397097;
+    --color-long-break-dark: #2f5d7e;
+    --color-long-break-light: #4a84ad;
+    
+    /* Neutrals */
+    --color-white: #ffffff;
+    --color-white-soft: rgba(255, 255, 255, 0.9);
+    --color-white-muted: rgba(255, 255, 255, 0.6);
+    --color-white-faint: rgba(255, 255, 255, 0.15);
+    
+    /* Current mode (defaults to pomodoro) */
+    --bg-current: var(--color-pomodoro);
+    --bg-current-dark: var(--color-pomodoro-dark);
+    --bg-current-light: var(--color-pomodoro-light);
+    
+    /* Typography */
+    --font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-size-timer: clamp(5rem, 20vw, 7.5rem);
+    --font-size-tab: 1rem;
+    --font-size-btn: 1.375rem;
+    --font-size-session: 0.875rem;
+    --font-size-message: 1.125rem;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-normal: 300ms ease;
+    --transition-slow: 500ms ease;
+    
+    /* Shadows */
+    --shadow-btn: 0 6px 0 rgba(0, 0, 0, 0.15);
+    --shadow-btn-pressed: 0 2px 0 rgba(0, 0, 0, 0.15);
+    --shadow-card: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Mode-specific color variables */
+[data-mode="pomodoro"] {
+    --bg-current: var(--color-pomodoro);
+    --bg-current-dark: var(--color-pomodoro-dark);
+    --bg-current-light: var(--color-pomodoro-light);
+}
+
+[data-mode="shortBreak"] {
+    --bg-current: var(--color-short-break);
+    --bg-current-dark: var(--color-short-break-dark);
+    --bg-current-light: var(--color-short-break-light);
+}
+
+[data-mode="longBreak"] {
+    --bg-current: var(--color-long-break);
+    --bg-current-dark: var(--color-long-break-dark);
+    --bg-current-light: var(--color-long-break-light);
+}
+
+/* ==========================================================================
+   Base Reset
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-current);
+    color: var(--color-white);
+    min-height: 100vh;
+    transition: background-color var(--transition-slow);
+    line-height: 1.5;
+}
+
+button {
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+    background: none;
+}
+
+button:focus-visible {
+    outline: 3px solid var(--color-white);
+    outline-offset: 3px;
+}
+
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: var(--spacing-md);
+    padding-top: var(--spacing-lg);
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.header {
+    margin-bottom: var(--spacing-xl);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-white);
+    letter-spacing: -0.02em;
+}
+
+/* ==========================================================================
+   Timer Card
+   ========================================================================== */
+
+.timer-card {
+    background-color: var(--color-white-faint);
+    border-radius: 8px;
+    padding: var(--spacing-lg) var(--spacing-md);
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-card);
+}
+
+/* ==========================================================================
+   Mode Tabs
+   ========================================================================== */
+
+.mode-tabs {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.tab {
+    font-size: var(--font-size-tab);
+    font-weight: 600;
+    color: var(--color-white);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 4px;
+    background-color: transparent;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+    white-space: nowrap;
+}
+
+.tab:hover {
+    background-color: var(--color-white-faint);
+}
+
+.tab:active {
+    transform: scale(0.97);
+}
+
+.tab.active {
+    background-color: rgba(0, 0, 0, 0.2);
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   Timer Display
+   ========================================================================== */
+
+.timer-panel {
+    padding: var(--spacing-md) 0;
+}
+
+.timer-display {
+    font-size: var(--font-size-timer);
+    font-weight: 800;
+    color: var(--color-white);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: var(--spacing-lg);
+    font-variant-numeric: tabular-nums;
+    user-select: none;
+}
+
+.timer-display .colon {
+    margin: 0 -0.05em;
+}
+
+/* ==========================================================================
+   Controls
+   ========================================================================== */
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-md);
+    min-height: 60px;
+}
+
+.btn-primary {
+    background-color: var(--color-white);
+    color: var(--bg-current);
+    font-size: var(--font-size-btn);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: var(--spacing-sm) var(--spacing-xl);
+    border-radius: 4px;
+    box-shadow: var(--shadow-btn);
+    transition: 
+        color var(--transition-slow),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+    min-width: 200px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary:active {
+    transform: translateY(4px);
+    box-shadow: var(--shadow-btn-pressed);
+}
+
+.btn-skip {
+    color: var(--color-white);
+    padding: var(--spacing-xs);
+    border-radius: 4px;
+    opacity: 0.8;
+    transition: 
+        opacity var(--transition-fast),
+        transform var(--transition-fast),
+        background-color var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-skip:hover {
+    opacity: 1;
+    background-color: var(--color-white-faint);
+}
+
+.btn-skip:active {
+    transform: scale(0.92);
+}
+
+.btn-skip[hidden] {
+    display: none;
+}
+
+.btn-skip svg {
+    width: 28px;
+    height: 28px;
+}
+
+/* ==========================================================================
+   Session Info
+   ========================================================================== */
+
+.session-info {
+    margin-top: var(--spacing-lg);
+    color: var(--color-white-soft);
+}
+
+#session-count {
+    display: block;
+    font-size: var(--font-size-session);
+    font-weight: 600;
+    opacity: 0.8;
+    margin-bottom: var(--spacing-xs);
+}
+
+#session-message {
+    font-size: var(--font-size-message);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   App Footer
+   ========================================================================== */
+
+.app-footer {
+    margin-top: auto;
+    padding-top: var(--spacing-xl);
+    color: var(--color-white-muted);
+    font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.timer-display.running .colon {
+    animation: pulse 1s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   Responsive Adjustments
+   ========================================================================== */
+
+@media (max-width: 480px) {
+    :root {
+        --font-size-tab: 0.875rem;
+        --font-size-btn: 1.25rem;
+    }
+    
+    .timer-card {
+        padding: var(--spacing-md);
+    }
+    
+    .btn-primary {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        min-width: 160px;
+    }
+    
+    .controls {
+        gap: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 360px) {
+    .mode-tabs {
+        gap: 0.25rem;
+    }
+    
+    .tab {
+        padding: var(--spacing-xs) 0.625rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* ==========================================================================
+   Accessibility: Reduced Motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

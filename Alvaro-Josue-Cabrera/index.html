@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-mode="pomodoro">
+    <div class="app-container">
+        <header class="header">
+            <h1 class="logo">🍅 Pomodoro</h1>
+        </header>
+
+        <main class="timer-card">
+            <nav class="mode-tabs" role="tablist" aria-label="Timer modes">
+                <button 
+                    class="tab active" 
+                    data-mode="pomodoro" 
+                    role="tab" 
+                    aria-selected="true"
+                    aria-controls="timer-panel"
+                >
+                    Pomodoro
+                </button>
+                <button 
+                    class="tab" 
+                    data-mode="shortBreak" 
+                    role="tab" 
+                    aria-selected="false"
+                    aria-controls="timer-panel"
+                >
+                    Short Break
+                </button>
+                <button 
+                    class="tab" 
+                    data-mode="longBreak" 
+                    role="tab" 
+                    aria-selected="false"
+                    aria-controls="timer-panel"
+                >
+                    Long Break
+                </button>
+            </nav>
+
+            <div id="timer-panel" class="timer-panel" role="tabpanel">
+                <div class="timer-display" aria-live="polite" aria-atomic="true">
+                    <span id="minutes">25</span><span class="colon">:</span><span id="seconds">00</span>
+                </div>
+
+                <div class="controls">
+                    <button id="start-btn" class="btn-primary" aria-label="Start timer">
+                        START
+                    </button>
+                    <button id="skip-btn" class="btn-skip" aria-label="Skip to next timer" hidden>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="5 4 15 12 5 20 5 4"></polygon>
+                            <line x1="19" y1="5" x2="19" y2="19"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <footer class="session-info">
+                <span id="session-count">#1</span>
+                <p id="session-message">Time to focus!</p>
+            </footer>
+        </main>
+
+        <footer class="app-footer">
+            <p>Stay focused, take breaks</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
