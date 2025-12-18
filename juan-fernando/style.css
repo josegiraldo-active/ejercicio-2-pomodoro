@@ -1,0 +1,125 @@
+:root {
+    --pomodoro: #ba4949;
+    --short: #38858a;
+    --long: #397097;
+    --transition-speed: 0.5s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--pomodoro);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color var(--transition-speed) ease;
+}
+
+#app {
+    width: 100%;
+    max-width: 480px;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    opacity: 0.9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.timer-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 25px 0 40px 0;
+    border-radius: 6px;
+}
+
+.modes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.mode-btn {
+    background: none;
+    border: none;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    transition: background 0.2s;
+}
+
+.mode-btn.active {
+    background-color: rgba(0, 0, 0, 0.15);
+    font-weight: 700;
+}
+
+.timer-display {
+    font-size: 100px;
+    font-weight: 700;
+    margin: 20px 0;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    position: relative;
+}
+
+.main-btn {
+    background-color: white;
+    border: none;
+    color: var(--pomodoro); /* Dinámico vía JS */
+    font-size: 22px;
+    font-weight: 700;
+    padding: 12px 48px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: rgb(235, 235, 235) 0px 6px 0px;
+    transition: all 0.1s ease;
+    text-transform: uppercase;
+}
+
+.main-btn:active {
+    transform: translateY(6px);
+    box-shadow: none;
+}
+
+.main-btn.stop {
+    /* Estilo opcional para cuando está activo */
+}
+
+.skip-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.skip-btn:hover {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .timer-display { font-size: 80px; }
+}
